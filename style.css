@@ -1,0 +1,29 @@
+body{
+    margin: 0;
+    background-color: #f5f4ef;
+    color: #24332b;
+    font-family: Arial, sans-serif;
+}
+
+main{
+    max-width: 720px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.filter{
+    display: block;
+    margin-bottom: 24px;
+    cursor: pointer;
+}
+
+.restaurant{
+    background-color: white;
+    border: 1px solid #d6ded6;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+}
+.restaurant h2{
+    margin-top: 0;
+}

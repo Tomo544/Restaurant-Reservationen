@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurants entdecken</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main>
+        <h1>Restaurants entdecken</h1>
+
+        <label class="filter">
+            <input type="checkbox" id="vegi-filter">
+            Nur Restaurants mit vegetarischen Gerichten
+        </label>
+
+        <section aria-label="Restaurantenliste">
+            <article class="restaurant" data-vegi="ja">
+                <h2>Bistro am See</h2>
+                <p> Luzern · Mediterrane Küche</p>
+                <p>Vegetarische Gerichte verfügbar</p>
+                <button type="button" class="anfrage-button">Tisch anfragen</button>
+            </article>
+
+            <article class="restaurant" data-vegi="nein">
+                <h2>Grillstube</h2>
+                <p>Rotkreuz · Grillspezialität</p>
+                <button type="button" class="anfrage-button">Tisch anfragen</button>
+            </article>
+        </section>
+        <section id="anfrage-bereich" hidden>
+            <h2 id="anfrage-titel"></h2>
+            <p>Du kannst deinen Tisch ohne Konto anfragen.</p>
+        </section>
+    </main>
+    
+</body>
+</html>
