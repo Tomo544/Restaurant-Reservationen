@@ -21,3 +21,10 @@ for(const button of anfrageButtons){
         anfrageBereich.scrollIntoView({ behavior: "smooth"});
     });
 }
+
+const anfrageFormular = document.querySelector("#anfrage-formular");
+
+anfrageFormular.addEventListener("submit", function(event){
+    event.preventDefault();
+    alert("Die Pflichfelder sind ausgefüllt. Dies ist ein Test - deine Anfrage wurde noch nicht versendet.");
+});

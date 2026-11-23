@@ -33,6 +33,44 @@
         <section id="anfrage-bereich" hidden>
             <h2 id="anfrage-titel"></h2>
             <p>Du kannst deinen Tisch ohne Konto anfragen.</p>
+            <form id="anfrage-formular">
+                <p>
+                    <label>
+                        Datum
+                        <input type="date" name="datum" required>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        Gewünschte Uhrzeit
+                        <input type="time" name="uhrzeit" required>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        Anzahl Gäste
+                        <input type="number" name="anzahlGäste" min="1" value="2" required>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        Dein Name
+                        <input type="text" name="gastname" autocomplete="name" required>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        Deine E-Mail-Adresse
+                        <input type="email" name="email" autocomplete="email" required>
+                    </label>
+                </p>
+
+                <button type="submit">Eingabe prüfen</button>
+            </form>
         </section>
     </main>
     
