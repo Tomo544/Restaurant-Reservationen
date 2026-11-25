@@ -16,15 +16,22 @@
             Nur Restaurants mit vegetarischen Gerichten
         </label>
 
+        <label for="ort-filter">Ort</label>
+        <select id="ort-filter">
+            <option value="">Alle Orte</option>
+            <option value="Luzern">Luzern</option>
+            <option value="Rotkreuz">Rotkreuz</option>
+        </select>
+
         <section aria-label="Restaurantenliste">
-            <article class="restaurant" data-id="1" data-vegi="ja">
+            <article class="restaurant" data-id="1" data-vegi="ja" data-ort="Luzern">
                 <h2>Bistro am See</h2>
                 <p> Luzern · Mediterrane Küche</p>
                 <p>Vegetarische Gerichte verfügbar</p>
                 <button type="button" class="anfrage-button">Tisch anfragen</button>
             </article>
 
-            <article class="restaurant" data-id="2" data-vegi="nein">
+            <article class="restaurant" data-id="2" data-vegi="nein" data-ort="Rotkreuz">
                 <h2>Grillstube</h2>
                 <p>Rotkreuz · Grillspezialität</p>
                 <button type="button" class="anfrage-button">Tisch anfragen</button>

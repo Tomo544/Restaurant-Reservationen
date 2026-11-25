@@ -1,12 +1,20 @@
 const vegiFilter = document.querySelector("#vegi-filter");
+const ortFilter = document.querySelector("#ort-filter");
 const restaurantKarten = document.querySelectorAll(".restaurant");
 
-vegiFilter.addEventListener("change", function(){
-    for (const karte of restaurantKarten){
-        const hatVegiGerichte = karte.dataset.vegi === "ja";
-        karte.hidden = vegiFilter.checked && !hatVegiGerichte;
+function restaurantsFiltern() {
+    for (const karte of restaurantKarten) {
+        const ortPasst = ortFilter.value === "" || karte.dataset.ort === ortFilter.value;
+        const vegiPasst = !vegiFilter.checked || karte.dataset.vegi === "ja";
+
+        karte.hidden = !(ortPasst && vegiPasst);
     }
-});
+}
+
+ortFilter.addEventListener("change", restaurantsFiltern);
+vegiFilter.addEventListener("change", restaurantsFiltern);
+restaurantsFiltern();
+
 const anfrageButtons = document.querySelectorAll(".anfrage-button");
 const anfrageBereich = document.querySelector("#anfrage-bereich");
 const anfrageTitel = document.querySelector("#anfrage-titel");
