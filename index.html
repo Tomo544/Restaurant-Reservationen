@@ -17,14 +17,14 @@
         </label>
 
         <section aria-label="Restaurantenliste">
-            <article class="restaurant" data-vegi="ja">
+            <article class="restaurant" data-id="1" data-vegi="ja">
                 <h2>Bistro am See</h2>
                 <p> Luzern · Mediterrane Küche</p>
                 <p>Vegetarische Gerichte verfügbar</p>
                 <button type="button" class="anfrage-button">Tisch anfragen</button>
             </article>
 
-            <article class="restaurant" data-vegi="nein">
+            <article class="restaurant" data-id="2" data-vegi="nein">
                 <h2>Grillstube</h2>
                 <p>Rotkreuz · Grillspezialität</p>
                 <button type="button" class="anfrage-button">Tisch anfragen</button>
@@ -34,6 +34,7 @@
             <h2 id="anfrage-titel"></h2>
             <p>Du kannst deinen Tisch ohne Konto anfragen.</p>
             <form id="anfrage-formular">
+                <input type="hidden" id="restaurant-id" name="restaurantId">
                 <p>
                     <label>
                         Datum
@@ -51,7 +52,7 @@
                 <p>
                     <label>
                         Anzahl Gäste
-                        <input type="number" name="anzahlGäste" min="1" value="2" required>
+                        <input type="number" name="anzahlGaeste" min="1" value="2" required>
                     </label>
                 </p>
 
