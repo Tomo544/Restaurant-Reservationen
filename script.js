@@ -14,6 +14,7 @@ const anfrageTitel = document.querySelector("#anfrage-titel");
 for(const button of anfrageButtons){
     button.addEventListener("click", function(){
         const karte = button.closest(".restaurant");
+        document.querySelector("#restaurant-id").value = karte.dataset.id;
         const restaurantName = karte.querySelector("h2").textContent;
 
         anfrageTitel.textContent = "Tisch anfragen bei " + restaurantName;
@@ -26,5 +27,10 @@ const anfrageFormular = document.querySelector("#anfrage-formular");
 
 anfrageFormular.addEventListener("submit", function(event){
     event.preventDefault();
+    const daten = new FormData(anfrageFormular);
+    const anfrage = Object.fromEntries(daten);
+    anfrage.restaurantId = Number(anfrage.restaurantId);
+    anfrage.anzahlGaeste = Number(anfrage.anzahlGaeste);
+    console.table(anfrage);
     alert("Die Pflichfelder sind ausgefüllt. Dies ist ein Test - deine Anfrage wurde noch nicht versendet.");
 });
