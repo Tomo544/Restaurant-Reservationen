@@ -35,3 +35,44 @@ main{
     object-fit: cover;
     border-radius: 8px;
 }
+
+.restaurant-liste{
+    display: grid;
+    grid-template-columns: minmax(0,1fr);
+    gap: 20px;
+    margin-top: 16px;
+}
+
+.restaurant-liste > .restaurant:not([hidden]){
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.restaurant-liste > .restaurant > .anfrage-button{
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+@media (min-width: 768px){
+    .restaurant-liste{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.anfrage-button {
+    margin-top: auto;
+    align-self: flex-start;
+    padding: 10px 16px;
+    border: 0;
+    border-radius: 8px;
+    background-color: #26382f;
+    color: white;
+    font: inherit;
+    cursor: pointer;
+}
+
+.anfrage-button:hover{
+    background-color: #385344;
+}
