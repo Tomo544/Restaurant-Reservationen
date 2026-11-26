@@ -16,6 +16,15 @@ const restaurants = [
         hatVegiGerichte: false,
         bild: "bilder/grillstube.png",
         bildAlt: "Gastraum mit Holztischen und offenem Grill"
+    },
+    {
+        id: 3,
+        name: "Pizzeria Altstadt",
+        ort: "Luzern",
+        kueche: "Italienische Küche",
+        hatVegiGerichte: true,
+        bild: "bilder/pizzeria-altstadt.png",
+        bildAlt: "Gastraum der Pizzeria Altstadt"
     }
 ];
 
