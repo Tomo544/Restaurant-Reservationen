@@ -3,7 +3,7 @@ const restaurants = [
         id: 1,
         name: "Bistro am See",
         ort: "Luzern",
-        kueche: "Mediterrane Küche",
+        kueche: "Mediterran",
         hatVegiGerichte: true,
         bild: "bilder/bistro-am-see.png",
         bildAlt:"Gedeckte Tische auf einer Terrasse am See"
@@ -12,7 +12,7 @@ const restaurants = [
         id: 2,
         name: "Grillstube",
         ort: "Rotkreuz",
-        kueche: "Grillspezialität",
+        kueche: "Grill",
         hatVegiGerichte: false,
         bild: "bilder/grillstube.png",
         bildAlt: "Gastraum mit Holztischen und offenem Grill"
@@ -21,10 +21,37 @@ const restaurants = [
         id: 3,
         name: "Pizzeria Altstadt",
         ort: "Luzern",
-        kueche: "Italienische Küche",
+        kueche: "Italienisch",
         hatVegiGerichte: true,
         bild: "bilder/pizzeria-altstadt.png",
         bildAlt: "Gastraum der Pizzeria Altstadt"
+    },
+    {
+        id: 4,
+        name: "Siam Garten",
+        ort: "Zug",
+        kueche: "Thailändisch",
+        hatVegiGerichte: true,
+        bild: "bilder/siam-garten.png",
+        bildAlt: "Gastraum des Restaurants Siam Garten"
+    },
+    {
+        id: 5,
+        name: "Sakura Sushi",
+        ort: "Ebikon",
+        kueche: "Japanisch",
+        hatVegiGerichte: true,
+        bild: "bilder/sakura-sushi.png",
+        bildAlt: "Gastraum des Restaurants Sakura Sushi"
+    },
+    {
+        id: 6,
+        name: "Mumbai Küche",
+        ort: "Emmen",
+        kueche: "Indisch",
+        hatVegiGerichte: true,
+        bild: "bilder/mumbai-kueche.png",
+        bildAlt: "Gastraum des Restaurants Mumbai Küche"
     }
 ];
 
@@ -37,6 +64,7 @@ for (const restaurant of restaurants) {
 
     karte.dataset.id = restaurant.id;
     karte.dataset.ort = restaurant.ort;
+    karte.dataset.kueche = restaurant.kueche;
     karte.dataset.vegi = restaurant.hatVegiGerichte ? "ja" : "nein";
 
     const bild = karte.querySelector(".restaurant-bild");
@@ -53,6 +81,23 @@ for (const restaurant of restaurants) {
 
 const vegiFilter = document.querySelector("#vegi-filter");
 const ortFilter = document.querySelector("#ort-filter");
+const kuecheFilter = document.querySelector("#kueche-filter");
+const orte = new Set();
+const kuechen = new Set();
+
+for (const restaurant of restaurants){
+    orte.add(restaurant.ort);
+    kuechen.add(restaurant.kueche);
+}
+
+for (const ort of Array.from(orte).sort()){
+    ortFilter.add(new Option(ort, ort));
+}
+
+for (const kueche of Array.from(kuechen).sort()){
+    kuecheFilter.add(new Option(kueche, kueche));
+}
+
 const restaurantKarten = document.querySelectorAll(".restaurant");
 
 function restaurantsFiltern() {
@@ -60,11 +105,13 @@ function restaurantsFiltern() {
         const ortPasst = ortFilter.value === "" || karte.dataset.ort === ortFilter.value;
         const vegiPasst = !vegiFilter.checked || karte.dataset.vegi === "ja";
 
-        karte.hidden = !(ortPasst && vegiPasst);
+        const kuechePasst = kuecheFilter.value === "" || karte.dataset.kueche === kuecheFilter.value;
+        karte.hidden = !(ortPasst && kuechePasst && vegiPasst);
     }
 }
 
 ortFilter.addEventListener("change", restaurantsFiltern);
+kuecheFilter.addEventListener("change", restaurantsFiltern)
 vegiFilter.addEventListener("change", restaurantsFiltern);
 restaurantsFiltern();
 
